@@ -1,9 +1,7 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { OKTA_CONFIG } from '@okta/okta-angular';
-import { OktaAuthModule } from '@okta/okta-angular';
-import OktaAuth from '@okta/okta-auth-js';
+import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
 
 import { AppComponent } from './app.component';
 import { ConfigService } from './config.service';
@@ -39,9 +37,7 @@ import { ConfigService } from './config.service';
       provide: OKTA_CONFIG,
       useFactory: (configService: ConfigService) => {
         console.log('OKTA_CONFIG factory');
-        return {
-          oktaAuth: new OktaAuth(configService.config),
-        };
+        return configService.config;
       },
       deps: [ConfigService],
     },
