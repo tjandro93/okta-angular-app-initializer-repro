@@ -1,0 +1,5 @@
+{
+    "baseUrl": "https://www.example.com",
+    "clientId": "EXAMPLE_CLIENT_ID",
+    "issuer": "https://www.example.com/oauth2/default"
+}
